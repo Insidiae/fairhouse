@@ -1,0 +1,26 @@
+<section class="hero">
+  <div>
+    <h2>Transitional housing can be hard, we're here to help.</h2>
+    <div>
+      <label for="city">Search by City: </label>
+      <input type="text" id="city" [(ngModel)]="city" />
+      <button (click)="searchHousing()">Search</button>
+    </div>
+  </div>
+  <div>
+    <img src="../../assets/undraw_coming_home_-52-ir.svg" />
+  </div>
+</section>
+<!-- IF there are search results, we'll display them here -->
+<section class="search-results">
+  <ul>
+    <li *ngFor="let location of searchResults">
+      <p>
+        <a [routerLink]="['/details', location.id]"
+          >{{ location.name }}, {{ location.city }}
+        </a>
+      </p>
+      <p class="description">{{ location.description }}</p>
+    </li>
+  </ul>
+</section>
